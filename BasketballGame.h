@@ -18,16 +18,22 @@ struct playerStats{
 	bool out;}
 
 struct finalStats{
+	double secPlayed;
 	int pts, fgm, fgat, tfgm, tfgat, ftm, ftat, oreb, dreb, assists, steals, blocks, tovs, fouls;}
 
 class basketballGame{
 	public:
 	basletballGame();
 	void setStats(team &pros, team &joes, inFile &indata, inFile &inSert);
-	void game(team &pros, team &joes);
-	void possession(team &pros);
-	void setScore(team &pros, int x);
-	void setPoints(team &pros.player, int x);
+	void randomize(int& num);
+	void chance(double& num);
+	void game(team& pros, team& joes);
+	void possession(team& pros, team& joes);
+	void quarter1(team &pros, team &joes);
+	void quarter2(team& pros, team& joes);
+	void quarter3(team& pros, team& joes);
+	void quarter4(team& pros, team& joes);
+	void overtime(team& pros, team& joes);
 	void setFieldGoal(team &pros.player, bool shot);
 	void setThreePoint(team &pros.player, bool shot);
 	void setFreeThrow(team &pros.player, bool shot);
@@ -38,11 +44,12 @@ class basketballGame{
 	void setBlocks(team &pros.player);
 	void setTurnovers(team &pros.player);
 	void setFouls(team &pros.player);
+	void detFreeThrow(team& pros.player, team& joes.player, double num, int attempts);
 	void substitution(team &pros.player);
 
 	private:
-	int shotClock,count;
+	int shotClock, count; 
+	int q1t1, q1t2, q2t1.q2t2, q3t1, q3t2, q4t1, q4t2;
+	double secGame;
 	bool make;
-	int team1onCourt[5];
-	int team2onCourt[5];
 }
